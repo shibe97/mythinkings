@@ -1,0 +1,15 @@
+{
+	"background_color": "#f8f7f3",
+	"theme_color": "#0D1A3C",
+	"name": "mythinkings.",
+	"short_name": "mythinkings.",
+	"display": "minimal-ui",
+	"start_url": "/",
+	"icons": [
+		{
+			"src": "logo-256.png",
+			"sizes": "256x256",
+			"type": "image/png"
+		}
+	]
+}
