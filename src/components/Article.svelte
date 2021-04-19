@@ -76,7 +76,7 @@
 
 <Meta post={post} />
 
-{#if post.ogimage !== null}
+{#if post.ogimage !== null && post.ogimage !== undefined}
 	<div class="ogimage">
 		<picture>
 			<source

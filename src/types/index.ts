@@ -7,8 +7,8 @@ export interface article {
   body: (richText | textWithRightImage)[];
   books: book[] | null;
   author: author | null;
-  publishedAt: Date;
-  revisedAt: Date;
+  publishedAt?: Date;
+  revisedAt?: Date;
 }
 
 export interface richText {

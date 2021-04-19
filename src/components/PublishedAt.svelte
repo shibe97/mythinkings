@@ -24,6 +24,7 @@
   }
 </style>
 
+{#if publishedAt !== undefined && publishedAt !== null}
 <div class="container">
 	<CalendarIcon size="24" class="icon" />
 	<time
@@ -32,3 +33,4 @@
 		{publishedAt}
 	</time>
 </div>
+{/if}
