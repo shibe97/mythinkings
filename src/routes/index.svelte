@@ -76,7 +76,7 @@
 <ul>
 	{#each contents as post}
 		<li class="list">
-			<a href={`${post.id}/`} class="imageLink">
+			<a sveltekit:prefetch href={`${post.id}/`} class="imageLink">
 				<picture>
 					<source
 						type="image/webp"
