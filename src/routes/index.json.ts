@@ -24,7 +24,8 @@ export async function get() {
           }
         })
       }
-    });
+    })
+    .catch(() => null);
   return {
     body
   };

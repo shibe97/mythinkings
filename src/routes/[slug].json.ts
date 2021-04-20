@@ -20,7 +20,8 @@ export async function get({ params }) {
         ...res,
         publishedAt: jstString
       };
-    });
+    })
+    .catch(() => null);
   return {
     body
   };
