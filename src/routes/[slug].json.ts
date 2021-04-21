@@ -2,7 +2,11 @@ import nodeFetch from 'node-fetch';
 import { format } from 'date-fns';
 import { utcToZonedTime } from 'date-fns-tz';
 
-export async function get({ params }) {
+type Request = {
+	params: Record<string, string | string[]>;
+};
+
+export async function get({ params }: Request): Promise<void> {
   const { slug } = params;
   const fetch =
   typeof window !== 'undefined'

@@ -18,7 +18,7 @@ ${contents
 </urlset>
 `;
 
-export async function get() {
+export async function get(): Promise<void> {
   const fetch =
   typeof window !== 'undefined'
     ? window.fetch
