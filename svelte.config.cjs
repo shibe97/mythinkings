@@ -1,5 +1,4 @@
 const sveltePreprocess = require('svelte-preprocess');
-const node = require('@sveltejs/adapter-node');
 const vercel = require('@sveltejs/adapter-vercel');
 const pkg = require('./package.json');
 
