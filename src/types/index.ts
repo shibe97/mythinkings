@@ -1,3 +1,10 @@
+export interface microcmsList {
+  contents: article[];
+  totalCount: number;
+  offset: number;
+  limit: number;
+}
+
 export interface article {
   id: string;
   title: string;

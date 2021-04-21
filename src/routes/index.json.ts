@@ -1,8 +1,15 @@
 import nodeFetch from 'node-fetch';
 import { format } from 'date-fns';
 import { utcToZonedTime } from 'date-fns-tz';
+import type { microcmsList } from '../types';
 
-export async function get(): Promise<void> {
+type Response = {
+	status?: number;
+	headers?: Record<string, string>;
+	body?: microcmsList;
+};
+
+export async function get(): Promise<Response> {
   const fetch =
   typeof window !== 'undefined'
     ? window.fetch

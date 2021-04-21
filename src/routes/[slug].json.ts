@@ -1,12 +1,19 @@
 import nodeFetch from 'node-fetch';
 import { format } from 'date-fns';
 import { utcToZonedTime } from 'date-fns-tz';
+import type { article } from '../types';
 
 type Request = {
 	params: Record<string, string | string[]>;
 };
 
-export async function get({ params }: Request): Promise<void> {
+type Response = {
+	status?: number;
+	headers?: Record<string, string>;
+	body?: article;
+};
+
+export async function get({ params }: Request): Promise<Response> {
   const { slug } = params;
   const fetch =
   typeof window !== 'undefined'

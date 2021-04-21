@@ -18,7 +18,13 @@ ${contents
 </urlset>
 `;
 
-export async function get(): Promise<void> {
+type Response = {
+	status?: number;
+	headers?: Record<string, string>;
+	body?: string;
+};
+
+export async function get(): Promise<Response> {
   const fetch =
   typeof window !== 'undefined'
     ? window.fetch
@@ -44,6 +50,10 @@ export async function get(): Promise<void> {
     .catch(() => null);
   const sitemap = render(body.contents);
   return {
-    body: sitemap
+    body: sitemap,
+    headers: {
+      'Cache-Control': `max-age=0, s-max-age=${600}`, // 10 minutes
+      'Content-Type': 'application/rss+xml'
+    }
   };
 }
