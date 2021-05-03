@@ -1,4 +1,5 @@
 <script context="module" lang="ts">
+	export const prerender = true;
 	export async function load({ page, fetch }) {
 		const res = await fetch(`/${page.params.slug}.json`).then((r) => r.json());
 

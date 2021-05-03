@@ -1,4 +1,5 @@
 <script context="module" lang="ts">
+	export const prerender = true;
 	export async function load({ fetch }) {
 		const res = await fetch('/index.json').then((r) => r.json());
 
