@@ -5,7 +5,7 @@ import dateFnsTz from 'date-fns-tz'
 const { format } = dateFns;
 const { utcToZonedTime } = dateFnsTz;
 
-const BASE_URL = "https://www.mythinkings.net/"
+const BASE_URL = "https://www.mythinkings.net"
 const render = (contents) => `<?xml version="1.0" encoding="UTF-8" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url><loc>${BASE_URL}</loc><lastmod>${
@@ -13,7 +13,7 @@ const render = (contents) => `<?xml version="1.0" encoding="UTF-8" ?>
 }</lastmod></url>
 ${contents
   .map(
-    post => `<url><loc>${BASE_URL}${post.id}/</loc><lastmod>${
+    post => `<url><loc>${BASE_URL}${post.id}</loc><lastmod>${
       post.revisedAt
     }</lastmod></url>`
   )

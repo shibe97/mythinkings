@@ -63,7 +63,7 @@
 <svelte:head>
 	<title>mythinkings.</title>
 	<meta name="description" content="会社と自己を成長させるための思考メモ" />
-	<meta property="og:url" content="https://www.mythinkings.net/" />
+	<meta property="og:url" content="https://www.mythinkings.net" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="mythinkings." />
   <meta property="og:description" content="会社と自己を成長させるための思考メモ" />
@@ -71,7 +71,7 @@
 	<meta property="og:image" content="https://www.mythinkings.net/ogp.png" />
 	<meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@shibe97" />
-	<link rel="canonical" href="https://www.mythinkings.net/" />
+	<link rel="canonical" href="https://www.mythinkings.net" />
 </svelte:head>
 
 <ul>
