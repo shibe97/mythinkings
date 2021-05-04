@@ -1,5 +1,5 @@
 <header class="header">
-  <h1><a href="/"><img src="logo.svg" alt="mythinkings" class="logo"></a></h1>
+  <h1><a href="/"><img src="/logo.svg" alt="mythinkings" class="logo"></a></h1>
 </header>
 
 <style lang="scss">
