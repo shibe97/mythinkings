@@ -24,7 +24,6 @@
 		.header {
 			padding: 16px 24px;
       height: 64px;
-      backdrop-filter: blur(2px);
 		}
 	}
 </style>
