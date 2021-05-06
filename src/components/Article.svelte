@@ -13,6 +13,7 @@
 	.title {
 		font-size: 2.4em;
 		font-weight: bold;
+		line-height: 1.8;
 		padding-bottom: 10px;
 	}
 
@@ -65,6 +66,7 @@
 	@media (max-width: 640px) {
 		.title {
 			font-size: 2em;
+			line-height: 1.8;
 		}
 		.ogimage {
 			margin: 40px -24px;
@@ -117,7 +119,7 @@
 	<dd>
 		<ul class="shareLists">
 			<li class="shareList">
-				<a class="shareLink" href={`https://twitter.com/intent/tweet?text=${post.title}｜mythinkings.&url=https://www.mythinkings.net/${post.id}/`} target="twitter">
+				<a class="shareLink" href={`https://twitter.com/intent/tweet?text=${post.title}｜柴田 和祈&url=https://www.mythinkings.net/${post.id}/`} target="twitter">
 					<img class="shareIcon" src="/icon_twitter.svg" alt="Twitter" />
 				</a>
 			</li>

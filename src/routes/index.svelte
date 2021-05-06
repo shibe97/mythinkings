@@ -46,6 +46,7 @@
 	.title {
 		display: block;
 		padding-bottom: 4px;
+		line-height: 1.8;
 	}
 	@media (max-width: 640px) {
 		.list {
