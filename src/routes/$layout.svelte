@@ -11,7 +11,7 @@
 	.main {
 		position: relative;
 		width: 720px;
-		margin: 0 auto;
+		margin: 72px auto 0;
 		padding: 40px 0;
 		box-sizing: border-box;
 		color: $color-text-main;
@@ -28,6 +28,7 @@
 		.main {
 			width: auto;
 			padding: 16px 24px;
+			margin-top: 64px;
 		}
 	}
 </style>
