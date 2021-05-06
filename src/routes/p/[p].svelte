@@ -1,24 +1,26 @@
 <script context="module" lang="ts">
 	export const prerender = true;
-	export async function load({ fetch }) {
-		const res = await fetch('/index.json').then((r) => r.json());
+	export async function load({ page, fetch }) {
+		const res = await fetch(`/p/${page.params.p}.json`).then((r) => r.json());
 
 		return {
 			props: {
 				contents: res.contents,
-				totalCount: res.totalCount
+				totalCount: res.totalCount,
+				current: parseInt(page.params.p),
 			}
 		};
 	}
 </script>
 
 <script lang="ts">
-	import Meta from '../components/Meta.svelte';
-	import Pagination from '../components/Pagination.svelte';
-	import type { article } from '../types';
-	import { LIMIT } from '..//constants';
+	import Meta from '../../components/Meta.svelte';
+	import Pagination from '../../components/Pagination.svelte';
+	import type { article } from '../../types';
+	import { LIMIT } from '../../constants';
 	export let contents: article[];
 	export let totalCount: number;
+	export let current: number;
 	export let pages = Array.from({ length: Math.ceil(totalCount / LIMIT)}).map((_, i) => i + 1);
 </script>
 
@@ -106,4 +108,4 @@
 	{/each}
 </ul>
 
-<Pagination pages={pages} current={1} />
+<Pagination pages={pages} current={current} />
