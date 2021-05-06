@@ -11,8 +11,8 @@
 	.main {
 		position: relative;
 		width: 720px;
-		margin: 72px auto 0;
-		padding: 40px 0;
+		margin: 0 auto 0;
+		padding: 112px 0 40px;
 		box-sizing: border-box;
 		color: $color-text-main;
 	}
@@ -20,15 +20,14 @@
 	@media (max-width: 800px) and (min-width: 640px) {
 		.main {
 			width: auto;
-			padding: 40px;
+			padding: 112px 40px 40px;
 		}
 	}
 
 	@media (max-width: 640px) {
 		.main {
 			width: auto;
-			padding: 16px 24px;
-			margin-top: 64px;
+			padding: 80px 24px 16px;
 		}
 	}
 </style>
