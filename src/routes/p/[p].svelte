@@ -99,7 +99,7 @@
 				</picture>
 			</a>
 			<div class="content">
-				<a href={`${post.id}`} class="title">
+				<a href={`/${post.id}`} class="title">
 					{post.title}
 				</a>
 				<Meta post={post} />
