@@ -119,17 +119,17 @@
 	<dd>
 		<ul class="shareLists">
 			<li class="shareList">
-				<a class="shareLink" href={`https://twitter.com/intent/tweet?text=${post.title}｜柴田 和祈&url=https://www.mythinkings.net/${post.id}/`} target="twitter">
+				<a class="shareLink" href={`https://twitter.com/intent/tweet?text=${post.title}｜柴田 和祈&url=https://www.mythinkings.net/${post.id}`} target="twitter">
 					<img class="shareIcon" src="/icon_twitter.svg" alt="Twitter" />
 				</a>
 			</li>
 			<li class="shareList">
-				<a class="shareLink" href={`https://b.hatena.ne.jp/entry/https://www.mythinkings.net/${post.id}/`} target="hatena">
+				<a class="shareLink" href={`https://b.hatena.ne.jp/entry/https://www.mythinkings.net/${post.id}`} target="hatena">
 					<img class="shareIcon" src="/icon_hatena.svg" alt="はてなブックマーク" />
 				</a>
 			</li>
 			<li class="shareList">
-				<a class="shareLink" href={`https://www.facebook.com/sharer/sharer.php?u=https://www.mythinkings.net/${post.id}/`} target="facebook">
+				<a class="shareLink" href={`https://www.facebook.com/sharer/sharer.php?u=https://www.mythinkings.net/${post.id}`} target="facebook">
 					<img class="shareIcon" src="/icon_facebook.svg" alt="Facebook" />
 				</a>
 			</li>
