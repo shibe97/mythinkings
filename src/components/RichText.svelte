@@ -60,7 +60,8 @@
 	}
 
 	.content :global(img) {
-		width: 100%;
+		width: calc(100% + 48px);
+		margin: 0 -24px;
 	}
 
 	.content :global(strong) {
@@ -73,6 +74,13 @@
 		color: $color-text-hint;
 		font-style: italic;
 		margin-top: 24px;
+	}
+
+	@media (max-width: 640px) {
+		.content :global(img) {
+			width: 100%;
+			margin: auto;
+		}
 	}
 </style>
 
