@@ -1,11 +1,17 @@
 <script context="module" lang="ts">
 	export const prerender = true;
 	export async function load({ page, fetch }) {
-		const res = await fetch(`/${page.params.slug}.json`).then((r) => r.json());
+		const post = await fetch(`/${page.params.slug}.json`).then((r) => r.json());
+		const { contents } = await fetch('/allArticles.json').then((r) => r.json());
+		const tagIds = post.tags.map(tag => tag.id);
+		const relatedArticles = contents.filter((item) => {
+			return item.tags.some(tag => tagIds.includes(tag.id)) && item.id !== post.id
+		});
 
 		return {
 			props: {
-				post: res
+				post,
+				relatedArticles,
 			}
 		};
 	}
@@ -13,8 +19,10 @@
 
 <script lang="ts">
 	import Article from '../components/Article.svelte';
+	import RelatedArticles from '../components/RelatedArticles.svelte';
 	import type { article } from '../types';
 	export let post: article;
+	export let relatedArticles: article[];
 </script>
 
 <svelte:head>
@@ -32,3 +40,4 @@
 </svelte:head>
 
 <Article post={post} />
+<RelatedArticles articles={relatedArticles} />

@@ -11,7 +11,6 @@
 			display: flex;
 			margin-top: 60px;
 			border-top: 1px solid $color-text-sub;
-			border-bottom: 1px solid $color-text-sub;
 			padding: 40px 0;
 		}
 
@@ -56,7 +55,6 @@
 			display: flex;
 			margin-top: 60px;
 			border-top: 1px solid $color-text-sub;
-			border-bottom: 1px solid $color-text-sub;
 			padding: 24px 0;
 		}
 

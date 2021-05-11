@@ -12,7 +12,7 @@
 		position: relative;
 		width: 720px;
 		margin: 0 auto 0;
-		padding: 112px 0 40px;
+		padding: 112px 0 0;
 		box-sizing: border-box;
 		color: $color-text-main;
 	}
@@ -20,7 +20,7 @@
 	@media (max-width: 800px) and (min-width: 640px) {
 		.main {
 			width: auto;
-			padding: 112px 40px 40px;
+			padding: 112px 40px 0;
 		}
 	}
 
