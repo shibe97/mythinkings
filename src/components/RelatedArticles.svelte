@@ -51,6 +51,7 @@
 		.list {
 			width: 100%;
 			padding-bottom: 24px;
+			padding-right: 0;
 		}
 		.image {
 			width: 100%;
