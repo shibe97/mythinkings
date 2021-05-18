@@ -16,7 +16,7 @@
 	import Meta from '../components/Meta.svelte';
 	import Pagination from '../components/Pagination.svelte';
 	import type { article } from '../types';
-	import { LIMIT } from '..//constants';
+	import { LIMIT } from '../constants';
 	export let contents: article[];
 	export let totalCount: number;
 	export let pages = Array.from({ length: Math.ceil(totalCount / LIMIT)}).map((_, i) => i + 1);
