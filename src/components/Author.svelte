@@ -11,7 +11,7 @@
 			display: flex;
 			margin-top: 60px;
 			border-top: 1px solid $color-text-sub;
-			padding: 40px 0;
+			padding: 40px 0 60px;
 		}
 
 		.image {
@@ -55,7 +55,7 @@
 			display: flex;
 			margin-top: 60px;
 			border-top: 1px solid $color-text-sub;
-			padding: 24px 0;
+			padding: 24px 0 48px;
 		}
 
 		.image {
