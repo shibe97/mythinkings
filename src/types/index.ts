@@ -11,7 +11,7 @@ export interface article {
   description: string;
   tags: tag[] | null;
   ogimage: image | null;
-  body: (richText | textWithRightImage)[];
+  body: (richText | textWithRightImage | linkCard)[];
   books: book[] | null;
   author: author | null;
   publishedAt?: Date;
@@ -28,6 +28,19 @@ export interface textWithRightImage {
   text: HTMLElement;
   image: image;
   caption: string | null;
+}
+
+export interface linkCard {
+  fieldId: 'linkCard';
+  url: string;
+  ogp: ogp;
+}
+
+export interface ogp {
+  title?: string;
+  description?: string;
+  url?: string;
+  image?: string;
 }
 
 export interface image {
