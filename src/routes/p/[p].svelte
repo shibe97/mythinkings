@@ -37,6 +37,9 @@
 		width: 200px;
 		height: 105px;
 		margin-right: 40px;
+		&:hover {
+			opacity: 0.8;
+		}
 	}
 	.image {
 		width: 200px;
@@ -48,6 +51,9 @@
 	.title {
 		display: block;
 		padding-bottom: 4px;
+		&:hover {
+			text-decoration: underline;
+		}
 	}
 	@media (max-width: 640px) {
 		.list {
