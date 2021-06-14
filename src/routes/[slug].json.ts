@@ -1,5 +1,4 @@
 import nodeFetch from 'node-fetch';
-import { JSDOM } from 'jsdom';
 import { format } from 'date-fns';
 import { utcToZonedTime } from 'date-fns-tz';
 import type { article } from '../types';
@@ -29,23 +28,26 @@ export async function get({ params }: Request): Promise<Response> {
       const jstDate = utcToZonedTime(utcDate, 'Asia/Tokyo');
       const jstString = format(jstDate, 'd MMMM, yyyy');
       const body = await Promise.all(
-        (res.body || []).map(async (item: any) => {
+        (res.body || []).map(async (item) => {
           if (item.fieldId === 'linkCard') {
             const ogp = await fetch(item.url)
               .then(res => res.text())
               .then(res => {
-                const dom = new JSDOM(res);
-                const meta = dom.window.document.querySelectorAll('head > meta');
-                return Array.from(meta)
-                  .filter((element: any) => element.hasAttribute("property"))
-                  .reduce((prev: any, ogp: any) => {
-                    const property = ogp.getAttribute("property").trim().replace("og:", "");
-                    const content = ogp.getAttribute("content");
-                    return {
-                      ...prev,
-                      [property]: content,
-                    };
-                  }, {});
+                const metas = res.match(/<meta.+?>/g);
+                return metas.map(m => {
+                  const propertyStr = m.match(/property=".+?"/);
+                  const property = propertyStr && propertyStr[0].trim().replace(/"/g, '').replace('og:', '').split('=')[1];
+                  const contentStr = m.match(/content=".+?"/);
+                  const content = contentStr && contentStr[0].trim().replace(/"/g, '').split('=')[1];
+                  return {
+                    property, content
+                  };
+                }).filter(m => m.property && m.content).reduce((prev, ogp) => {
+                  return {
+                    ...prev,
+                    [ogp.property]: ogp.content
+                  };
+                }, {});
               })
             return {
               ...item,
