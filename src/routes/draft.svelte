@@ -4,6 +4,8 @@
 
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { format } from 'date-fns';
+	import { utcToZonedTime } from 'date-fns-tz';
 	import Article from '../components/Article.svelte';
 	import type { article } from '../types';
 
@@ -40,6 +42,47 @@
       headers: { "X-API-KEY" : '99a2f198-c8dd-4e34-b37b-ca44b6fd89ad' }
     })
 			.then(res => res.json())
+			.then(async (res) => {
+				const utcDate = new Date(res.updatedAt);
+				const jstDate = utcToZonedTime(utcDate, 'Asia/Tokyo');
+				const jstString = format(jstDate, 'd MMMM, yyyy');
+				const body = await Promise.all(
+					(res.body || []).map(async (item) => {
+						if (item.fieldId === 'linkCard') {
+							const ogp = await fetch(item.url)
+								.then(res => res.text())
+								.then(res => {
+									const metas = res.match(/<meta.+?>/g);
+									return metas.map(m => {
+										const propertyStr = m.match(/property=".+?"/);
+										const property = propertyStr && propertyStr[0].trim().replace(/"/g, '').replace('og:', '').split('=')[1];
+										const contentStr = m.match(/content=".+?"/);
+										const content = contentStr && contentStr[0].trim().replace(/"/g, '').split('=')[1];
+										return {
+											property, content
+										};
+									}).filter(m => m.property && m.content).reduce((prev, ogp) => {
+										return {
+											...prev,
+											[ogp.property]: ogp.content
+										};
+									}, {});
+								})
+							return {
+								...item,
+								ogp,
+							}
+						}
+						return item;
+					})
+				);
+				return {
+					...res,
+					body,
+					publishedAt: jstString
+				};
+			})
+			.catch(() => null);
 
     post = response || {};
 	}

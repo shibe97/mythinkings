@@ -46,24 +46,26 @@
 		}
 
 		.title {
-			font-size: 18px;
+			font-size: 16px;
 			font-weight: bold;
 			margin-bottom: 8px;
 		}
 
 		.description {
 			color: $color-text-sub;
+			font-size: 14px;
 		}
 
 		.url {
-			color: $color-text-sub;
+			color: $color-text-off;
 			font-size: 14px;
+			word-break: break-word;
 		}
 	}
 
 	@media (max-width: 640px) {
 		.container {
-			display: flex;
+			display: block;
 			background-color: $color-bg-white;
 			border: 1px solid $color-border-light;
 			border-radius: 8px;
@@ -76,9 +78,7 @@
 		}
 
 		.image {
-			max-width: 120px;
-			max-height: 60px;
-			margin-right: 16px;
+			width: 100%;
 		}
 
 		.content {
@@ -94,6 +94,12 @@
 		.description {
 			color: $color-text-sub;
 			font-size: 12px;
+		}
+
+		.url {
+			color: $color-text-off;
+			font-size: 12px;
+			word-break: break-word;
 		}
 	}
 </style>
