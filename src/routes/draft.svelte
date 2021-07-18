@@ -43,7 +43,6 @@
     })
 			.then(res => res.json())
 			.then(async (res) => {
-				console.log(res)
 				const utcDate = new Date(res.updatedAt);
 				const jstDate = utcToZonedTime(utcDate, 'Asia/Tokyo');
 				const jstString = format(jstDate, 'd MMMM, yyyy');
@@ -77,7 +76,6 @@
 						return item;
 					})
 				);
-				console.log(body);
 				return {
 					...res,
 					body,
@@ -87,7 +85,6 @@
 			.catch(() => null);
 
     post = response || {};
-		console.log(post);
 	}
 	
   onMount(() => {
