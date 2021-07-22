@@ -28,7 +28,7 @@
 			border: 1px solid $color-border-light;
 			border-radius: 8px;
 			padding: 32px;
-			margin: 24px 0;
+			margin: 24px -32px;
 
 			&:hover {
 				border: 1px solid $color-border;
