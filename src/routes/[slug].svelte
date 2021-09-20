@@ -2,6 +2,9 @@
 	export const prerender = true;
 	export async function load({ page, fetch }) {
 		const post = await fetch(`/${page.params.slug}.json`).then((r) => r.json());
+		if (!post) {
+			return null;
+		}
 		const { contents } = await fetch('/allArticles.json').then((r) => r.json());
 		const tagIds = post.tags.map(tag => tag.id);
 		const relatedArticles = contents.filter((item) => {
