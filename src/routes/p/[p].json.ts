@@ -23,7 +23,7 @@ export async function get({ params }: Request): Promise<Response> {
     ? window.fetch
     : nodeFetch;
   const body = await fetch(`https://shibe97.microcms.io/api/v1/blog/?limit=${LIMIT}&offset=${LIMIT * (page - 1)}&fields=id,ogimage,title,tags,publishedAt`, {
-    headers: { "X-API-KEY" : '99a2f198-c8dd-4e34-b37b-ca44b6fd89ad' }
+    headers: { "X-MICROCMS-API-KEY" : import.meta.env.VITE_API_KEY }
   })
 		.then((res) => res.json())
 		.then((res) => {
