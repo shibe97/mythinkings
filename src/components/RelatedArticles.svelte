@@ -65,7 +65,7 @@
 	<ul class="lists">
 		{#each articles as post}
 			<li class="list">
-				<a sveltekit:prefetch href={`${post.id}`} class="imageLink">
+				<a sveltekit:prefetch href={post.private ? `private/${post.id}` : `${post.id}`} class="imageLink">
 					<picture>
 						<source
 							type="image/webp"
@@ -80,7 +80,7 @@
 					</picture>
 				</a>
 				<div class="content">
-					<a href={`${post.id}`} class="title">
+					<a href={post.private ? `private/${post.id}` : `${post.id}`} class="title">
 						{post.title}
 					</a>
 					{#if post.tags.length > 0}

@@ -1,5 +1,32 @@
+<script lang="ts">
+	import { onMount } from 'svelte';
+  import createAuth0Client from '@auth0/auth0-spa-js';
+  import { isAuthenticated, authToken } from '../store';
+	const config = {
+		domain: "mythikings.jp.auth0.com",
+		client_id: "u0N1w2Lt5jNg0s1onz5RO1h5wu0LSFxQ"
+	};
+  export let client;
+	async function authenticate() {
+    client = await createAuth0Client(config);
+    isAuthenticated.set(await client.isAuthenticated());
+    authToken.set(await client.getTokenSilently());
+  }
+  onMount(() => {
+    authenticate();
+  })
+</script>
+
 <header class="header">
   <h1 class="logo"><a href="/"><img src="/logo.svg" alt="mythinkings" class="logo"></a></h1>
+  {#if $isAuthenticated === true }
+  <button on:click={() => client.logout({
+    returnTo: window.location.origin
+  })}>ログアウト</button>
+  {/if}
+  {#if $isAuthenticated === false }
+  <button on:click={() => client.loginWithPopup()}>ログイン</button>
+  {/if}
 </header>
 
 <style lang="scss">

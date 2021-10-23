@@ -14,7 +14,7 @@ export async function get(): Promise<Response> {
   typeof window !== 'undefined'
     ? window.fetch
     : nodeFetch;
-  const body = await fetch(`https://shibe97.microcms.io/api/v1/blog/?limit=20&fields=id,ogimage,title,tags,publishedAt`, {
+  const body = await fetch(`https://shibe97.microcms.io/api/v1/blog/?limit=20&fields=id,ogimage,title,tags,publishedAt,private`, {
     headers: { "X-API-KEY" : '99a2f198-c8dd-4e34-b37b-ca44b6fd89ad' }
   })
 		.then((res) => res.json())

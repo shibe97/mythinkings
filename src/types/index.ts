@@ -14,6 +14,7 @@ export interface article {
   body: (richText | textWithRightImage | linkCard)[];
   books: book[] | null;
   author: author | null;
+  private: boolean;
   publishedAt?: Date;
   revisedAt?: Date;
 }

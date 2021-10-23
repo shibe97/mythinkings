@@ -1,6 +1,7 @@
 import nodeFetch from 'node-fetch';
 import { format } from 'date-fns';
 import { utcToZonedTime } from 'date-fns-tz';
+import type { article } from '../../types';
 
 type Request = {
 	params: Record<string, string | string[]>;
@@ -12,7 +13,8 @@ type Response = {
 	body?: article;
 };
 
-export async function get({ params }: Request): Promise<Response> {
+export async function get(req : Request): Promise<Response> {
+  const { params } = req;
   const { slug } = params;
   const fetch =
   typeof window !== 'undefined'
@@ -23,9 +25,6 @@ export async function get({ params }: Request): Promise<Response> {
   })
 		.then((res) => res.json())
 		.then(async (res) => {
-      if (res.private === true) {
-        return null;
-      }
       const utcDate = new Date(res.publishedAt);
       const jstDate = utcToZonedTime(utcDate, 'Asia/Tokyo');
       const jstString = format(jstDate, 'd MMMM, yyyy');
