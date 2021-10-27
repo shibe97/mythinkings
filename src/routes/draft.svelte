@@ -38,7 +38,7 @@
 	}
 	async function load() {
 		const { slug, draftKey } = getParams();
-    const response = await fetch(`https://shibe97.microcms.io/api/v1/blog/${slug}?draftKey=${draftKey}`, {
+    const response = await fetch(`https://${import.meta.env.VITE_SERVICE_ID}.microcms.io/api/v1/blog/${slug}?draftKey=${draftKey}`, {
     	headers: { "X-MICROCMS-API-KEY" : import.meta.env.VITE_API_KEY }
     })
 			.then(res => res.json())
