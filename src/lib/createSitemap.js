@@ -22,7 +22,7 @@ ${contents
 `;
 
 const get = async () => {
-  const body = await fetch(`https://shibe97.microcms.io/api/v1/blog/?limit=100`, {
+  const body = await fetch(`https://${import.meta.env.VITE_SERVICE_ID}.microcms.io/api/v1/blog/?limit=100`, {
     headers: { "X-MICROCMS-API-KEY" : import.meta.env.VITE_API_KEY }
   })
     .then(res => res.json())
