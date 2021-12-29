@@ -41,6 +41,9 @@
 		{#if item.fieldId === 'linkCard'}
 			<LinkCard url={item.url} ogp={item.ogp} />
 		{/if}
+		{#if item.fieldId === 'book'}
+			<Book book={item} />
+		{/if}
 	{/each}
 {/if}
 

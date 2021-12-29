@@ -11,7 +11,7 @@ export interface article {
   description: string;
   tags: tag[] | null;
   ogimage: image | null;
-  body: (richText | textWithRightImage | linkCard)[];
+  body: (richText | textWithRightImage | linkCard | book)[];
   books: book[] | null;
   author: author | null;
   publishedAt?: Date;
