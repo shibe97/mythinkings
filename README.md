@@ -1,42 +1,101 @@
-# create-svelte
+# mythinkings.
+SvelteKit製のブログ  
+https://www.mythinkings.net
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
+## microCMSのAPIスキーマ設定
+### ブログ
+endpoint: blog  
+type: リスト形式
 
-## Creating a project
+| フィールド ID | 表示名     | 種類                        |
+| ------------- | ---------- | --------------------------- |
+| title         | タイトル    | テキストフィールド          |
+| tags          | タグ       | 複数コンテンツ参照 - タグ   |
+| ogimage       | OGP画像    | 画像                     |
+| body          | 本文       | 繰り返しフィールド         |
+| description   | 概要       | テキストフィールド        |
+| books         | 参考書籍    | 繰り返しフィールド        |
+| author        | 著者       | コンテンツ参照 - 著者     |
 
-If you're seeing this, you've probably already done this step. Congrats!
+#### カスタムフィールド
+フィールドID: richText
 
-```bash
-# create a new project in the current directory
-npm init svelte@next
+| フィールド ID | 表示名     | 種類                        |
+| ------------- | ---------- | --------------------------- |
+| richText      | リッチテキスト   | リッチエディタ   |
 
-# create a new project in my-app
-npm init svelte@next my-app
+
+フィールドID: textWithRightImage
+
+| フィールド ID | 表示名     | 種類                        |
+| ------------- | ---------- | --------------------------- |
+| text        | テキスト | リッチエディタ            |
+| image       | 画像    | 画像                     |
+| caption     | キャプション  | テキストフィールド   |
+
+
+フィールドID: book
+
+| フィールド ID | 表示名     | 種類                        |
+| ------------- | ---------- | --------------------------- |
+| image         | 画像    | 画像                     |
+| title         | タイトル    | テキストフィールド     |
+| author        | 著者       | テキストフィールド     |
+| url           | URL  | テキストフィールド   |
+
+
+フィールドID: linkCard
+
+| フィールド ID | 表示名     | 種類                        |
+| ------------- | ---------- | --------------------------- |
+| url           | URL  | テキストフィールド   |
+
+
+### 著者
+endpoint: authors  
+type: リスト形式
+
+| フィールドID | 表示名 | 種類 |
+| ------------- | ------------- | ----- |
+| name    | 氏名 | テキストフィールド |
+| profile | プロフィール文 | テキストエリア |
+| image   | 画像 | 画像 |
+| twitter | Twitter ID | テキストフィールド |
+| github  | GitHub ID | テキストフィールド |
+
+
+### タグ
+endpoint: tags  
+type: リスト形式
+
+| フィールド ID | 表示名 | 種類               |
+| ------------- | ------ | ------------------ |
+| name          | タグ名   | テキストフィールド |
+
+
+## 環境変数
+プロジェクトルートに`.env`ファイルを作成し、以下の項目を設定してください。
+- API_KEY（microCMSのAPIキー）
+- SERVICE_ID（microCMSのサービスID）
+
+例:
+```
+API_KEY=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+SERVICE_ID=your-service-id
 ```
 
-> Note: the `@next` is temporary
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## 開発方法
 
 ```bash
-npm run dev
+# パッケージをインストール
+$ npm install
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+# 開発サーバーを起動（localhost:3000）
+$ npm run dev
+
+# アプリケーションをビルド
+$ npm run build
 ```
 
-## Building
-
-Svelte apps are built with _adapters_, which optimise your project for deployment to different environments.
-
-By default, `npm run build` will generate a Node app that you can run with `node build`. To use a different adapter, add it to the `devDependencies` in `package.json` making sure to specify the version as `next` and update your `svelte.config.cjs` to [specify your chosen adapter](https://kit.svelte.dev/docs#configuration-adapter). The following official adapters are available:
-
-- [@sveltejs/adapter-node](https://github.com/sveltejs/kit/tree/master/packages/adapter-node)
-- [@sveltejs/adapter-static](https://github.com/sveltejs/kit/tree/master/packages/adapter-static)
-- [@sveltejs/adapter-netlify](https://github.com/sveltejs/kit/tree/master/packages/adapter-netlify)
-- [@sveltejs/adapter-vercel](https://github.com/sveltejs/kit/tree/master/packages/adapter-vercel)
-- ...more soon
-
-[See the adapter documentation for more detail](https://kit.svelte.dev/docs#adapters)
+## ライセンス
+Apache License 2.0
