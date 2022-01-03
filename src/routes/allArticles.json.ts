@@ -14,7 +14,7 @@ export async function get(): Promise<Response> {
   typeof window !== 'undefined'
     ? window.fetch
     : nodeFetch;
-  const body = await fetch(`https://${import.meta.env.VITE_SERVICE_ID}.microcms.io/api/v1/blog/?limit=20&fields=id,ogimage,title,tags,publishedAt`, {
+  const body = await fetch(`https://${import.meta.env.VITE_SERVICE_ID}.microcms.io/api/v1/blog/?limit=100&fields=id,ogimage,title,tags,publishedAt`, {
     headers: { "X-MICROCMS-API-KEY" : import.meta.env.VITE_API_KEY }
   })
 		.then((res) => res.json())
