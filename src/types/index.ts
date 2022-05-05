@@ -11,7 +11,7 @@ export interface article {
   description: string;
   tags: tag[] | null;
   ogimage: image | null;
-  body: (richText | textWithRightImage | linkCard | book)[];
+  body: (richText | textWithRightImage | linkCard | callout | book)[];
   books: book[] | null;
   author: author | null;
   publishedAt?: Date;
@@ -41,6 +41,12 @@ export interface ogp {
   description?: string;
   url?: string;
   image?: string;
+}
+
+export interface callout {
+  fieldId: 'callout';
+  type: string;
+  text: string;
 }
 
 export interface image {

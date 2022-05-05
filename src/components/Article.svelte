@@ -3,6 +3,7 @@
 	import RichText from '../components/RichText.svelte';
 	import TextWithRightImage from '../components/TextWithRightImage.svelte';
 	import LinkCard from '../components/LinkCard.svelte';
+	import Callout from '../components/Callout.svelte';
 	import Book from '../components/Book.svelte';
 	import Author from '../components/Author.svelte';
 	import type { article } from '../types';
@@ -41,8 +42,13 @@
 		{#if item.fieldId === 'linkCard'}
 			<LinkCard url={item.url} ogp={item.ogp} />
 		{/if}
+		{#if item.fieldId === 'callout'}
+			<Callout type={item.type} text={item.text} />
+		{/if}
 		{#if item.fieldId === 'book'}
-			<Book book={item} />
+			<div class="book">
+				<Book book={item} />
+			</div>
 		{/if}
 	{/each}
 {/if}
@@ -131,6 +137,10 @@
 	.shareIcon {
 		max-width: 24px;
 		max-height: 24px;
+	}
+
+	.book {
+		margin-top: 8px;
 	}
 
 	.books {
