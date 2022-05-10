@@ -29,12 +29,13 @@
 	},
 	"type": "module",
 	"engines": {
-		"node": ">= 12.17.0"
+		"node": "14.x"
 	},
 	"dependencies": {
 		"date-fns": "^2.21.1",
 		"date-fns-tz": "^1.1.4",
 		"dayjs": "^1.10.4",
+		"dotenv": "^16.0.0",
 		"node-fetch": "^2.6.1",
 		"query-string": "^7.0.0",
 		"svelte-feather-icons": "^3.3.0"

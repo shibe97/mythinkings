@@ -1,7 +1,9 @@
 import fs from 'fs';
 import fetch from 'node-fetch';
 import dateFns from 'date-fns';
-import dateFnsTz from 'date-fns-tz'
+import dateFnsTz from 'date-fns-tz';
+import dotenv from 'dotenv';
+dotenv.config();
 const { format } = dateFns;
 const { utcToZonedTime } = dateFnsTz;
 
@@ -22,8 +24,8 @@ ${contents
 `;
 
 const get = async () => {
-  const body = await fetch(`https://${import.meta.env.VITE_SERVICE_ID}.microcms.io/api/v1/blog/?limit=100`, {
-    headers: { "X-MICROCMS-API-KEY" : import.meta.env.VITE_API_KEY }
+  const body = await fetch(`https://${process.env.VITE_SERVICE_ID}.microcms.io/api/v1/blog/?limit=100`, {
+    headers: { "X-MICROCMS-API-KEY" : process.env.VITE_API_KEY }
   })
     .then(res => res.json())
 		.then((res) => {

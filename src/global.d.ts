@@ -4,4 +4,5 @@
 
 interface ImportMetaEnv {
   VITE_API_KEY: string;
+  VITE_SERVICE_ID: string;
 }
