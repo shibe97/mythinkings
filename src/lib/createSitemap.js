@@ -15,7 +15,7 @@ const render = (contents) => `<?xml version="1.0" encoding="UTF-8" ?>
 }</lastmod></url>
 ${contents
   .map(
-    post => `<url><loc>${BASE_URL}${post.id}</loc><lastmod>${
+    post => `<url><loc>${BASE_URL}/${post.id}</loc><lastmod>${
       post.revisedAt
     }</lastmod></url>`
   )
